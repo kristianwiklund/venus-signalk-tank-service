@@ -41,11 +41,11 @@ SIGNALK_SERVER = '127.0.0.1:3000'
 # tanks on SIGNALK_SERVER.
 #
 SIGNALK_TANKS = [
-    { 'path': 'tanks/wasteWater/0' },
-    { 'path': 'tanks/freshWater/1' },
-    { 'path': 'tanks/freshWater/2' },
-    { 'path': 'tanks/fuel/3' },
-    { 'path': 'tanks/fuel/4' }
+    { 'path': 'tanks/fuel/0' },
+#    { 'path': 'tanks/freshWater/1' },
+#    { 'path': 'tanks/freshWater/2' },
+#    { 'path': 'tanks/fuel/3' },
+#    { 'path': 'tanks/fuel/4' }
 ]
 
 # The frequency in ms at which to update tank data.

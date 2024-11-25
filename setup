@@ -50,7 +50,7 @@ while [ "${response}" != "y" ] && [ "${response}" != "n" ] ; do
     esac
 done
 
-if [ -f "${MY_GUI_DIR}" ] ; then
+if [ -d "${MY_GUI_DIR}" ] ; then
 	response=""
 	while [ "${response}" != "o" ] && [ "${response}" != "t" ] && [ "${response}" != "n" ] ; do
     		if [ "${response}" == "help" ] ; then
