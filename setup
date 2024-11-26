@@ -37,11 +37,13 @@ while [ "${response}" != "y" ] && [ "${response}" != "n" ] ; do
 	    fi
 	    chmod 755 "${RCLOCAL}"
 	    echo "${SIGNALKTANK} &" >> "${RCLOCAL}"
+            ./install.sh
 	    ;;
         n)  if [ -f "${RCLOCAL}" ] ; then
 		grep -v "${SIGNALKTANK}" "${RCLOCAL}" > temp
     		mv -f temp "${RCLOCAL}"
 	    fi
+            ./uninstall.sh
 	    ;;
         help)
             ;;
