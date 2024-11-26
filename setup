@@ -1,7 +1,7 @@
 #!/bin/bash
 
 RCLOCAL="/data/rc.local"
-SIGNALKTANK="`pwd`/signalktank.py"
+SIGNALKTANK="`pwd`/install.sh"
 MY_GUI_DIR="./gui/${HOSTNAME}/"
 VENUS_OVERVIEW_QML="/opt/victronenergy/gui/qml/OverviewMobile.qml"
 MY_OVERVIEW_QML="${MY_GUI_DIR}OverviewMobile.qml"
@@ -37,11 +37,13 @@ while [ "${response}" != "y" ] && [ "${response}" != "n" ] ; do
 	    fi
 	    chmod 755 "${RCLOCAL}"
 	    echo "${SIGNALKTANK} &" >> "${RCLOCAL}"
+            ./install.sh
 	    ;;
         n)  if [ -f "${RCLOCAL}" ] ; then
 		grep -v "${SIGNALKTANK}" "${RCLOCAL}" > temp
     		mv -f temp "${RCLOCAL}"
 	    fi
+            ./uninstall.sh
 	    ;;
         help)
             ;;
@@ -50,7 +52,7 @@ while [ "${response}" != "y" ] && [ "${response}" != "n" ] ; do
     esac
 done
 
-if [ -f "${MY_GUI_DIR}" ] ; then
+if [ -d "${MY_GUI_DIR}" ] ; then
 	response=""
 	while [ "${response}" != "o" ] && [ "${response}" != "t" ] && [ "${response}" != "n" ] ; do
     		if [ "${response}" == "help" ] ; then
